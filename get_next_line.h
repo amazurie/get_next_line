@@ -6,7 +6,7 @@
 /*   By: amazurie <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/12 10:10:16 by amazurie          #+#    #+#             */
-/*   Updated: 2016/11/30 13:38:52 by amazurie         ###   ########.fr       */
+/*   Updated: 2016/12/06 15:56:33 by amazurie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,8 @@
 # define GET_NEXT_LINE_H
 # include <fcntl.h>
 
-# define BUFF_SIZE 8
+# define BUFF_SIZE 16
+# define DELIMITER '\n'
 
 typedef struct	s_line
 {

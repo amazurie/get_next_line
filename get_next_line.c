@@ -6,7 +6,7 @@
 /*   By: amazurie <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/21 14:05:06 by amazurie          #+#    #+#             */
-/*   Updated: 2016/12/06 11:17:39 by amazurie         ###   ########.fr       */
+/*   Updated: 2016/12/06 15:56:00 by amazurie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ int		read_file(int fd, t_line *tmp, char **line)
 	int		endl;
 	char	*tmp2;
 
-	endl = (ft_strchr(tmp->line, '\n')) ? 1 : 0;
+	endl = (ft_strchr(tmp->line, DELIMITER)) ? 1 : 0;
 	buff = (char*)ft_memalloc(BUFF_SIZE + 1);
 	ret = 1;
 	while (!endl && ret > 0)
@@ -49,12 +49,12 @@ int		read_file(int fd, t_line *tmp, char **line)
 			return (-1);
 		free(tmp->line);
 		tmp->line = tmp2;
-		endl = (ft_strchr(tmp->line, '\n')) ? 1 : 0;
+		endl = (ft_strchr(tmp->line, DELIMITER)) ? 1 : 0;
 	}
 	free(buff);
 	if (!(ret = (int)ft_strlen(tmp->line)))
 		return (0);
-	endl = ft_strlen_chr(tmp->line, '\n');
+	endl = ft_strlen_chr(tmp->line, DELIMITER);
 	*line = ft_strndup(tmp->line, endl);
 	tmp->line = ft_strsub(tmp->line, endl + 1, ft_strlen(tmp->line) - endl);
 	return ((ret > 0));
